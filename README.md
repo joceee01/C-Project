@@ -20,14 +20,15 @@
 ---
 
 ## Overview
-This repository contains the solution for the practical case study. It is implemented as a C# console application that fulfills the following requirements:
+This repository contains the solution for a practical case study. It is implemented as a C# console application that fulfills the following requirements:
 - **Input Transactions**: Allows users to input transactions with details like date, account, type (deposit/withdrawal), and amount.
 - **Define Interest Rates**: Supports defining interest rate rules with effective dates and rates.
 - **Print Account Statement**: Displays account statements, calculates pro-rated interest rates.
+- **Transfer Transaction**: Allows transferring amount from a payer account to a payee account.
 - **Quit**: Exits the application.
 
 ---
-
+1
 ## Features
 1. **Input Transactions**:
    - Allows the user to input transactions in the format:
@@ -40,6 +41,7 @@ This repository contains the solution for the practical case study. It is implem
      ```
    - Automatically creates an account if it does not exist.
    - Displays transactions for the account, ordered by date.
+   - Displays account information
    - **Validation**:
      - For **withdrawals (W)**, checks if the account balance is sufficient:
        - If the balance is insufficient, the transaction will fail, and the user will see a message:
@@ -78,7 +80,29 @@ This repository contains the solution for the practical case study. It is implem
      ```
    - Displays the account statement, calculates daily interest, and includes it as a transaction at the end of the month.
 
-4. **Quit**:
+3. **Transfer Transaction**:
+   - Allows the user to transfer money from 1 account to another in the format:
+     ```
+     <Payer Account>|<Payee Account>|<Amount>
+     ```
+     Example:
+     ```
+     AC001|AC002|100
+     ```
+     Explanation:
+     ```
+     100 from AC001 will be transfered to AC002
+     ```
+   - Displays both accounts' information.
+   - **Validation**:
+     - Transferring to the same account is not allowed and both accounts must exist
+     - For **Payer Account**, checks if the account balance is sufficient for the transfer amount:
+       - If the balance is insufficient, the transaction will fail, and the user will see a message:
+         ```
+         Transaction failed. Payer Account {payerAcc} has insufficient funds.
+         ```
+
+5. **Quit**:
    - Closes the application.
 
 ---
@@ -108,3 +132,24 @@ This repository contains the solution for the practical case study. It is implem
      Invalid input. Please follow the format: DDMMYYYY|Account|Type|Amount.
      ```
 
+4. **Numeric Validation**:
+    - Ensure that all amount and rate input are in a correct format. (e.g., positive numeric number)
+   - Displays user-friendly error messages for invalid inputs, such as:
+     ```
+     Amount must be a positive decimal number.
+     ```
+
+5. **Unsuccessful Transfer**:
+   - If a transfer transaction is attempted with an amount greater than the payer account's current balance:
+     - The transaction is rejected, and the user is notified:
+       ```
+       Transaction failed. Payer Account {payerAcc} has insufficient funds.
+       ```
+     - The account balance remains unchanged.
+
+5. **Non-existence Account**:
+   - If user input a account that does not exist for transfer transaction
+     - The transaction is rejected, and the user is notified:
+       ```
+       Payer/Payee Account does not exist.
+       ```
