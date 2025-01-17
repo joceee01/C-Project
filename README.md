@@ -6,7 +6,7 @@
 2. **Steps**:
    - Find file in the directory:
      ```bash
-     e.g. C:/.../BankingApp
+     C:\...\BankingApp
      ```
    - Build the project:
      ```bash
