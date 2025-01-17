@@ -4,9 +4,10 @@
    - A C# IDE like Visual Studio or Visual Studio Code. (C# extension has to be installed using Visual Studio Code)
 
 2. **Steps**:
-   - Find file in the directory:
+   - Clone this repository:
      ```bash
-     C:\...\BankingApp
+     git clone https://github.com/joceee01/CSharp-Project.git
+     cd BankingApp
      ```
    - Build the project:
      ```bash
