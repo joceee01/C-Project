@@ -21,7 +21,7 @@
 ---
 
 ## Overview
-This repository contains the solution for a practical case study. It is implemented as a C# console application that fulfills the following requirements:
+This repository contains the solution for a practical case study of a Banking App. It is implemented as a C# console application that fulfills the following requirements:
 - **Input Transactions**: Allows users to input transactions with details like date, account, type (deposit/withdrawal), and amount.
 - **Define Interest Rates**: Supports defining interest rate rules with effective dates and rates.
 - **Print Account Statement**: Displays account statements, calculates pro-rated interest rates.
