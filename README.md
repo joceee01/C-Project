@@ -28,7 +28,7 @@ This repository contains the solution for a practical case study. It is implemen
 - **Quit**: Exits the application.
 
 ---
-1
+
 ## Features
 1. **Input Transactions**:
    - Allows the user to input transactions in the format:
