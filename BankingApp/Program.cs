@@ -258,7 +258,7 @@ namespace BankApp
                         string payeeAcc = parts[1].Trim();
                         if (!decimal.TryParse(parts[2].Trim(), out decimal amount) || amount <= 0)
                         {
-                            throw new InvalidOperationException("Rate must be a positive decimal number.");
+                            throw new InvalidOperationException("Amount must be a positive decimal number.");
                         }
 
                         if (payeeAcc == payerAcc)
